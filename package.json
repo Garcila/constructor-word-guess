@@ -1,0 +1,30 @@
+{
+  "name": "word-guess",
+  "version": "1.0.0",
+  "description": "word guess game in node",
+  "main": "Index.js",
+  "dependencies": {
+    "inquirer": "^6.2.1",
+    "random-words": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Garcila/constructor-word-guess.git"
+  },
+  "keywords": [
+    "node",
+    "word",
+    "guess",
+    "javascript"
+  ],
+  "author": "German Arcila",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Garcila/constructor-word-guess/issues"
+  },
+  "homepage": "https://github.com/Garcila/constructor-word-guess#readme"
+}
