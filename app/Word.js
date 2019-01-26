@@ -15,8 +15,6 @@ class Word {
     //   , []
     // );
 
-    // TODO: .GITIGNORE
-
     let arr = [];
     wordToArray.map(l => {
       let letter = l.character;
