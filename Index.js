@@ -17,12 +17,12 @@ inquirer
 		}
 	])
 	.then(function(res) {
-    let wordLength = res.wordLength;
-    
-    let chosenWord = randomWords({exactly: 1, maxLength: wordLength})[0];
+		let wordLength = res.wordLength;
+
+		let chosenWord = randomWords({ exactly: 1, maxLength: wordLength })[0];
 
 		let word = new Word(chosenWord);
-		console.log(word)
+		console.log(word);
 		console.log(word.guessedWordState());
 
 		// // If the user guesses the password...

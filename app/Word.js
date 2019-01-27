@@ -2,41 +2,38 @@ const Letter = require(`./Letter.js`);
 
 class Word {
 	constructor(word) {
-    this.word = word;
-    this.wordArray = this.letterArray();
-  }
-  
-  letterArray() {
-    let wordToArray = this.word.split('')
+		this.word = word;
+		this.wordArray = this.letterArray();
+	}
 
-    // TODO: make reduce work here
-    // let arrayOfLetterObjects = wordToArray.reduce((total, item) => 
-    //   total.push(new Letter(item.character))
-    //   , []
-    // );
+	letterArray() {
+		let wordToArray = this.word.split('');
 
-    let arr = [];
-    wordToArray.map(l => {
-      let letter = l.character;
-      letter = new Letter(l);
-      arr.push(letter);
-    })
-    // console.log(arr)
-    return arr;
-  }
+		// TODO: make reduce work here
+		// let arrayOfLetterObjects = wordToArray.reduce((total, item) =>
+		//   total.push(new Letter(item.character))
+		//   , []
+		// );
+
+		let arr = [];
+		wordToArray.map((l) => {
+			let letter = l.character;
+			letter = new Letter(l);
+			arr.push(letter);
+		});
+		// console.log(arr)
+		return arr;
+	}
 
 	guessedWordState() {
-    let showUser = this.wordArray.reduce(
-      (total, value) => total + value.letterOrLine(),
-      ''
-    );
-    return showUser;
-    // console.log('from show user inside word.js',showUser);
-  }
-  
-  checkLetterGuess(character) {
-    Letter.checkGuess(character);
-  }
+		let showUser = this.wordArray.reduce((total, value) => total + value.letterOrLine(), '');
+		return showUser;
+		// console.log('from show user inside word.js',showUser);
+	}
+
+	checkLetterGuess(character) {
+		Letter.checkGuess(character);
+	}
 }
 
 // let a = new Word('cat');
