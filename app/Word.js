@@ -21,7 +21,7 @@ class Word {
       letter = new Letter(l);
       arr.push(letter);
     })
-    console.log(arr)
+    // console.log(arr)
     return arr;
   }
 
@@ -30,13 +30,18 @@ class Word {
       (total, value) => total + value.letterOrLine(),
       ''
     );
-    console.log(showUser)
-	}
+    return showUser;
+    // console.log('from show user inside word.js',showUser);
+  }
+  
+  checkLetterGuess(character) {
+    Letter.checkGuess(character);
+  }
 }
 
-let a = new Word('cat');
+// let a = new Word('cat');
 
-a.guessedWordState();
+// a.guessedWordState();
 
 module.exports = Word;
 

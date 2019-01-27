@@ -21,8 +21,9 @@ inquirer
     
     let chosenWord = randomWords({exactly: 1, maxLength: wordLength})[0];
 
-    let word = new Word(chosenWord);
-    console.log(word);
+		let word = new Word(chosenWord);
+		console.log(word)
+		console.log(word.guessedWordState());
 
 		// // If the user guesses the password...
 		// if (user.myPassword === "myHouse") {
