@@ -2,6 +2,8 @@ const randomWords = require(`random-words`);
 const inquirer = require(`inquirer`);
 
 const Word = require(`./app/Word`);
+const MAXGUESSES = 7;
+let guesses = 0;
 
 inquirer
 	.prompt([
@@ -17,13 +19,39 @@ inquirer
 		}
 	])
 	.then(function(res) {
-    let wordLength = res.wordLength;
-    
-    let chosenWord = randomWords({exactly: 1, maxLength: wordLength})[0];
+		let wordLength = res.wordLength;
+
+		let chosenWord = randomWords({ exactly: 1, maxLength: wordLength })[0];
 
 		let word = new Word(chosenWord);
-		console.log(word)
-		console.log(word.guessedWordState());
+		console.log('as soon as it is created ', word);
+
+		// I'm checking if any of the letters in the word has not bee found
+		const wordHasNotBeenFound = () => word.wordArray.find((letter) => letter.guessed === false);
+
+		let inquirerOutput = [];
+		let questions = [
+			{
+				type: `input`,
+				name: `userLetterGuess`,
+				message: `? Guess a letter`
+			}
+		];
+
+		function ask() {
+			if (guesses < MAXGUESSES && wordHasNotBeenFound()) {
+				inquirer.prompt(questions).then((answers) => {
+					inquirerOutput.push(answers.userLetterGuess);
+					inquirerOutput.forEach((l) => word.checkLetterGuess(l));
+					console.log(word.guessedWordState());
+					ask();
+					guesses++;
+				});
+			} else {
+				console.log('no more chances or word fount ', inquirerOutput);
+			}
+		}
+		ask();
 
 		// // If the user guesses the password...
 		// if (user.myPassword === "myHouse") {

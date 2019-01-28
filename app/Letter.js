@@ -12,10 +12,16 @@ class Letter {
   }
 
   checkGuess(guess) {
-    this.guessed = guess === this.character ? true : false; 
+    if(guess === this.character){
+      this.guessed = true;
+    }
   }
 };
 // TODO: get rid of test
 // let a = new Letter('b').letterOrLine();
+// let a = new Letter('b')
+// console.log(a);
+// console.log(a.checkGuess('u'))
+// console.log(a);
 module.exports = Letter;
 

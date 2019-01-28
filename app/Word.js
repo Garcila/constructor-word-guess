@@ -4,6 +4,7 @@ class Word {
 	constructor(word) {
     this.word = word;
     this.wordArray = this.letterArray();
+    this.newArray = [];
   }
   
   letterArray() {
@@ -21,7 +22,6 @@ class Word {
       letter = new Letter(l);
       arr.push(letter);
     })
-    // console.log(arr)
     return arr;
   }
 
@@ -31,15 +31,17 @@ class Word {
       ''
     );
     return showUser;
-    // console.log('from show user inside word.js',showUser);
   }
   
   checkLetterGuess(character) {
-    Letter.checkGuess(character);
+    this.wordArray.forEach(letter => letter.checkGuess(character));
   }
 }
 
 // let a = new Word('cat');
+// console.log('this is the Letter object ', Letter)
+// console.log(a.checkLetterGuess('a'));
+// console.log(a.wordArray)
 
 // a.guessedWordState();
 

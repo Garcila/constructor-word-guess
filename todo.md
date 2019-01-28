@@ -23,9 +23,9 @@
   - [x] stores it in constructor Word
   - [] if there are chances and word has not been found
     - [] show 
-      - [] '? Guess a letter' ${letter chosen}
-        - [] capture user input
-        - [] store it in a variable userInput
+      - [x] '? Guess a letter' ${letter chosen}
+        - [x] capture user input
+        - [x] store it in a variable userInput
       - [] lines to be filled with letters
       - [] 'CORRECT' or 'INCORRECT'
       - [] number of chances remaining
